@@ -1,6 +1,6 @@
 import {NativeStackNavigationOptions} from '@react-navigation/native-stack';
 import {Pages} from '../../constants/pages.enum';
-import {ProductList} from '../../screens';
+import {ProductDetail, ProductList} from '../../screens';
 import {IRoutes} from '../../types/route-types';
 
 export const productRoutes: IRoutes[] = [
@@ -9,11 +9,11 @@ export const productRoutes: IRoutes[] = [
     component: ProductList,
   },
   {
-    name: Pages.Filter,
-    component: ProductList,
+    name: Pages.ProductDetail,
+    component: ProductDetail,
   },
   {
-    name: Pages.ProductDetail,
+    name: Pages.Filter,
     component: ProductList,
   },
 ];
