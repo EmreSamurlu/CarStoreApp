@@ -1,8 +1,11 @@
 import {useDispatch, useSelector} from 'react-redux';
 
 import {combineReducers, configureStore} from '@reduxjs/toolkit';
+import carStoreReducer from './features/carstore/slicer';
 
-const rootReducer = combineReducers({});
+const rootReducer = combineReducers({
+  carStore: carStoreReducer,
+});
 
 const store = configureStore({
   reducer: rootReducer,
