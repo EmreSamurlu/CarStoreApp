@@ -1,14 +1,18 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {BottomTab} from './navigations';
-import {routes} from './routes';
+import {routes, screenOptions} from './routes';
 
 const Router = () => {
   return (
     <NavigationContainer>
-      <BottomTab.Navigator>
+      <BottomTab.Navigator screenOptions={screenOptions}>
         {routes.map(route => (
-          <BottomTab.Screen name={route.name} component={route.component} />
+          <BottomTab.Screen
+            key={route.name}
+            name={route.name}
+            component={route.component}
+          />
         ))}
       </BottomTab.Navigator>
     </NavigationContainer>
