@@ -1,0 +1,12 @@
+import React, {FC, ReactNode} from 'react';
+import {SafeAreaView} from 'react-native-safe-area-context';
+
+interface ISafeAreaWrapper {
+  children: ReactNode;
+}
+
+const SafeAreaWrapper: FC<ISafeAreaWrapper> = ({children}) => {
+  return <SafeAreaView>{children}</SafeAreaView>;
+};
+
+export default SafeAreaWrapper;
