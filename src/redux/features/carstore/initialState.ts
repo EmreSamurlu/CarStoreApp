@@ -5,4 +5,5 @@ export const initialState: ICarStoreState = {
   carStore: [],
   status: AsyncStatus.Idle,
   error: null,
+  filteredStore: [],
 };

@@ -3,6 +3,7 @@ import {IStoreResponse} from './response-types';
 
 export interface ICarStoreState {
   carStore: IStoreResponse[] | undefined;
+  filteredStore: IStoreResponse[] | undefined;
   status: AsyncStatus;
   error: object | null;
 }

@@ -5,3 +5,5 @@ export {default as CartCard} from './CartCard';
 export {default as Text} from './Text';
 export {default as BottomTabComponent} from './BottomTabComponent';
 export {default as HeaderComponent} from './HeaderComponent';
+export {default as FilterContainer} from './FilterContainer';
+export {default as SearchBox} from './SearchBox';

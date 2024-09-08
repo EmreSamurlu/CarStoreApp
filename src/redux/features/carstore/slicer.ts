@@ -5,7 +5,13 @@ import {AsyncStatus} from '../../../constants/async-status.enum';
 const carSlice = createSlice({
   name: 'cars',
   initialState,
-  reducers: {},
+  reducers: {
+    setFilteredStore: (state, action) => {
+      if (action.payload) {
+        state.filteredStore = action.payload;
+      }
+    },
+  },
   extraReducers: builder => {
     builder
       .addCase(getCarsThunk.pending, state => {
@@ -21,5 +27,7 @@ const carSlice = createSlice({
       });
   },
 });
+
+export const {setFilteredStore} = carSlice.actions;
 
 export default carSlice.reducer;
