@@ -4,7 +4,10 @@ import {IStoreResponse} from './response-types';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
 export interface RootTabParams {
-  [key: string]: undefined;
+  [Pages.ProductStack]: undefined;
+  [Pages.Cart]: undefined;
+  [Pages.Favorites]: undefined;
+  [Pages.Profile]: undefined;
 }
 
 export type RootStackParams = {
