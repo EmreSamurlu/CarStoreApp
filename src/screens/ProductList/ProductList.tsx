@@ -26,9 +26,15 @@ const ProductList = () => {
   const {carStore, status, filteredStore} = useAppSelector(
     state => state.carStore,
   );
+  const {selectedBrands, selectedModels} = useAppSelector(
+    state => state.filters,
+  );
   const {addItem} = useCart();
   const {search} = useSearch();
   const [searchString, setSearchString] = useState('');
+  const [filterStore, setFilterStore] = useState<
+    IStoreResponse[] | undefined
+  >();
   useEffect(() => {
     dispatch(getCarsThunk());
   }, [dispatch]);
@@ -46,17 +52,29 @@ const ProductList = () => {
         onAddToCartPress={() => addItem(item)}
         productPrice={item.price}
         productImage={item.image}
-        productName={item.name}
+        productBrand={item.brand}
+        productModel={item.model}
       />
     );
   };
 
-  console.log(searchString);
   useEffect(() => {
     if (!searchString.length) {
       dispatch(setFilteredStore([]));
     }
   }, [dispatch, searchString]);
+
+  useEffect(() => {
+    if (selectedBrands.length || selectedModels.length) {
+      const newArr = carStore?.filter(
+        car =>
+          selectedBrands.includes(car.brand) ||
+          selectedModels.includes(car.model),
+      );
+
+      setFilterStore(newArr);
+    }
+  }, [carStore, selectedBrands, selectedModels]);
 
   const handleSearch = () => {
     if (searchString && carStore) {
@@ -80,7 +98,11 @@ const ProductList = () => {
           <View style={styles.list_container}>
             <FlatList
               contentContainerStyle={styles.list_container}
-              data={filteredStore?.length ? filteredStore : carStore}
+              data={
+                (filterStore?.length && filterStore) ||
+                (filteredStore?.length && filteredStore) ||
+                carStore
+              }
               renderItem={renderProductItem}
               numColumns={2}
               initialNumToRender={12}

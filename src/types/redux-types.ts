@@ -8,6 +8,13 @@ export interface ICarStoreState {
   error: object | null;
 }
 
+export interface IFilterState {
+  brandFilter: {checked: boolean; label: string; key: string}[];
+  modelFilter: {checked: boolean; label: string; key: string}[];
+  selectedModels: string[];
+  selectedBrands: string[];
+}
+
 export interface ICartState {
   cart: {
     id: string;

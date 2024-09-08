@@ -7,3 +7,4 @@ export {default as BottomTabComponent} from './BottomTabComponent';
 export {default as HeaderComponent} from './HeaderComponent';
 export {default as FilterContainer} from './FilterContainer';
 export {default as SearchBox} from './SearchBox';
+export {default as SortBox} from './SortBox';

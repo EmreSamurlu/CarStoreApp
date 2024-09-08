@@ -10,6 +10,9 @@
     "label.tl": "TRY",
     "label.addToCart": "Add to Cart",
     "label.noItem": "Item Not Found",
-    "label.deleteItem": "Clear Cart"
+    "label.deleteItem": "Clear Cart",
+    "label.search": "Search a Product",
+    "label.filters": "Filters",
+    "label.selectFilter": "Select Filter"
   }
 }

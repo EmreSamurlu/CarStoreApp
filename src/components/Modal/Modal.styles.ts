@@ -2,9 +2,9 @@ import {StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    margin: '2%',
+    position: 'absolute',
+    width: '100%',
+    backgroundColor: 'white',
+    height: '90%',
   },
 });

@@ -5,6 +5,7 @@ import carStoreReducer from './features/carstore/slicer';
 import cartReducer from './features/cart/slicer';
 import productReducer from './features/product/slicer';
 import favoritesReducer from './features/favorites/slicer';
+import filterReducer from './features/filters/slicer';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {
   FLUSH,
@@ -26,6 +27,7 @@ const rootReducer = combineReducers({
   cart: persistReducer(persistConfig, cartReducer),
   product: productReducer,
   favorites: persistReducer(persistConfig, favoritesReducer),
+  filters: persistReducer(persistConfig, filterReducer),
 });
 
 const store = configureStore({

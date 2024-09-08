@@ -10,6 +10,9 @@
     "label.tl": "TL",
     "label.addToCart": "Sepete Ekle",
     "label.noItem": "Ürün Bulunamadı",
-    "label.deleteItem": "Sepeti Boşalt"
+    "label.deleteItem": "Sepeti Boşalt",
+    "label.search": "Ürün Ara",
+    "label.filters": "Filtreler",
+    "label.selectFilter": "Filtre Seç"
   }
 }

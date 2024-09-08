@@ -11,7 +11,8 @@ import {useFavorites} from '../../hooks/useFavorites';
 interface IProductCard {
   product: IStoreResponse;
   productPrice: string;
-  productName: string;
+  productBrand: string;
+  productModel: string;
   productImage: string;
   onProductPress: () => void;
   onAddToCartPress: () => void;
@@ -20,7 +21,8 @@ interface IProductCard {
 const ProductCard: FC<IProductCard> = ({
   product,
   productImage,
-  productName,
+  productBrand,
+  productModel,
   productPrice,
   onProductPress,
   onAddToCartPress,
@@ -59,7 +61,7 @@ const ProductCard: FC<IProductCard> = ({
       <Card.Content style={styles.card_content}>
         <Text variant="titleLarge">{productPrice + ' ' + 'TL'}</Text>
         <Text variant="bodyMedium" numberOfLines={2} ellipsizeMode="tail">
-          {productName}
+          {productBrand} {productModel}
         </Text>
       </Card.Content>
 
