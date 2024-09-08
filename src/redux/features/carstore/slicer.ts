@@ -13,6 +13,7 @@ const carSlice = createSlice({
       })
       .addCase(getCarsThunk.fulfilled, (state, action) => {
         state.carStore = action.payload;
+        state.status = AsyncStatus.Success;
       })
       .addCase(getCarsThunk.rejected, (state, action) => {
         state.status = AsyncStatus.Error;
