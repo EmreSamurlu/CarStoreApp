@@ -6,7 +6,7 @@ interface ISafeAreaWrapper {
 }
 
 const SafeAreaWrapper: FC<ISafeAreaWrapper> = ({children}) => {
-  return <SafeAreaView>{children}</SafeAreaView>;
+  return <SafeAreaView style={{flex:1}}>{children}</SafeAreaView>;
 };
 
 export default SafeAreaWrapper;

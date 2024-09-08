@@ -32,7 +32,7 @@ const BottomTabComponent: FC<BottomTabBarProps> = ({
 
   return (
     <>
-      <View style={styles.tabContainer}>
+      <View style={[styles.tabContainer, {backgroundColor: colors.background}]}>
         {navigationState.routes.map((route, index) => {
           const label = route.name;
           const iconName =

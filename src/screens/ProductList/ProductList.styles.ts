@@ -1,7 +1,7 @@
 import {StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
-  flatlist: {
-    paddingBottom: '8%',
+  list_container: {
+    paddingBottom: '10%',
   },
 });

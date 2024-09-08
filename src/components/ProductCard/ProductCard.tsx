@@ -43,7 +43,10 @@ const ProductCard: FC<IProductCard> = ({
       style={styles.card_container}
       onPress={onProductPress}>
       <Card.Cover resizeMode="cover" source={{uri: productImage}} />
+
       <IconButton
+        mode="contained"
+        style={styles.icon}
         icon={'star'}
         onPress={handleToggleFavorite}
         iconColor={
@@ -52,6 +55,7 @@ const ProductCard: FC<IProductCard> = ({
             : 'black'
         }
       />
+
       <Card.Content style={styles.card_content}>
         <Text variant="titleLarge">{productPrice + ' ' + 'TL'}</Text>
         <Text variant="bodyMedium" numberOfLines={2} ellipsizeMode="tail">

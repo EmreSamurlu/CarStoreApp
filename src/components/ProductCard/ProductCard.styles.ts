@@ -7,6 +7,11 @@ export const styles = StyleSheet.create({
     marginHorizontal: '2%',
     justifyContent: 'space-between',
   },
+  icon: {
+    position: 'absolute',
+    top: '2%',
+    right: '2%',
+  },
   card_content: {
     marginVertical: '1%',
     minHeight: 72,

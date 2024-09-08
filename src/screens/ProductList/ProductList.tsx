@@ -4,7 +4,6 @@ import {useAppDispatch, useAppSelector} from '../../redux/store';
 import {getCarsThunk} from '../../redux/features/carstore/thunk/getCarsThunks';
 import {Loading, ProductCard, SafeAreaWrapper} from '../../components';
 import {IStoreResponse} from '../../types/response-types';
-import {Text} from 'react-native-paper';
 import {useNavigation} from '@react-navigation/native';
 import {Pages} from '../../constants/pages.enum';
 
@@ -47,16 +46,15 @@ const ProductList = () => {
         <Loading />
       ) : (
         <>
-          <View>
-            <Text> Filter Area </Text>
+          <View style={styles.list_container}>
+            <FlatList
+              contentContainerStyle={styles.list_container}
+              data={carStore}
+              renderItem={renderProductItem}
+              numColumns={2}
+              initialNumToRender={12}
+            />
           </View>
-          <FlatList
-            contentContainerStyle={styles.flatlist}
-            data={carStore}
-            renderItem={renderProductItem}
-            numColumns={2}
-            initialNumToRender={12}
-          />
         </>
       )}
     </SafeAreaWrapper>
