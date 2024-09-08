@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {combineReducers, configureStore} from '@reduxjs/toolkit';
 import carStoreReducer from './features/carstore/slicer';
 import cartReducer from './features/cart/slicer';
+import productReducer from './features/product/slicer';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {
   FLUSH,
@@ -22,6 +23,7 @@ const persistConfig = {
 const rootReducer = combineReducers({
   carStore: carStoreReducer,
   cart: persistReducer(persistConfig, cartReducer),
+  product: productReducer,
 });
 
 const store = configureStore({

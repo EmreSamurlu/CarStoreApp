@@ -7,13 +7,14 @@ import {IStoreResponse} from '../../types/response-types';
 import {Text} from 'react-native-paper';
 import {useNavigation} from '@react-navigation/native';
 import {Pages} from '../../constants/pages.enum';
-import {ProductScreenNavigationProp} from '../../types/navigation-types';
+
 import {useCart} from '../../utils/useCart';
 import {AsyncStatus} from '../../constants/async-status.enum';
+import {setSelectedProduct} from '../../redux/features/product/slicer';
 
 const ProductList = () => {
   const dispatch = useAppDispatch();
-  const {navigate} = useNavigation<ProductScreenNavigationProp>();
+  const {navigate} = useNavigation();
   const {carStore, status} = useAppSelector(state => state.carStore);
   const {addItem} = useCart();
 
@@ -23,7 +24,8 @@ const ProductList = () => {
 
   const renderProductItem = ({item}: {item: IStoreResponse}) => {
     const handleProductPress = (product: IStoreResponse) => {
-      navigate(Pages.ProductDetail, {product: product});
+      dispatch(setSelectedProduct(product));
+      navigate(Pages.ProductDetail as never);
     };
 
     return (
@@ -37,15 +39,12 @@ const ProductList = () => {
     );
   };
 
-  console.log(status);
-
   return (
     <SafeAreaWrapper>
       {status === AsyncStatus.Loading ? (
         <Loading />
       ) : (
         <>
-          <Text>TITLE</Text>
           <View>
             <Text> Filter Area </Text>
           </View>

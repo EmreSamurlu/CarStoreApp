@@ -1,5 +1,15 @@
 {
   "translation": {
-    "label.productList": "Product List"
+    "label.ProductList": "Product List",
+    "label.Favorites": "Favorites",
+    "label.Cart": "Cart",
+    "label.Profile": "Profile",
+    "label.Products": "Products",
+    "label.ProductDetail": "Product Detail",
+    "label.price": "Price",
+    "label.tl": "TRY",
+    "label.addToCart": "Add to Cart",
+    "label.noItem": "Item Not Found",
+    "label.deleteItem": "Clear Cart"
   }
 }

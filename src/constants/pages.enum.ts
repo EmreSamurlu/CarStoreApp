@@ -2,8 +2,8 @@ export enum Pages {
   Cart = 'Cart',
   Favorites = 'Favorites',
   Filter = 'Filter',
-  ProductStack = 'Product List',
+  ProductStack = 'ProductList',
   ProductList = 'Products',
-  ProductDetail = 'Product Detail',
+  ProductDetail = 'ProductDetail',
   Profile = 'Profile',
 }

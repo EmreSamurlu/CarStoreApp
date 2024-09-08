@@ -1,5 +1,15 @@
 {
   "translation": {
-    "label.productList": "Ürün Listesi"
+    "label.ProductList": "Ürün Listesi",
+    "label.Favorites": "Favoriler",
+    "label.Cart": "Sepet",
+    "label.Profile": "Profil",
+    "label.Products": "Ürünler",
+    "label.ProductDetail": "Ürün Detayı",
+    "label.price": "Fiyat",
+    "label.tl": "TL",
+    "label.addToCart": "Sepete Ekle",
+    "label.noItem": "Ürün Bulunamadı",
+    "label.deleteItem": "Sepeti Boşalt"
   }
 }
