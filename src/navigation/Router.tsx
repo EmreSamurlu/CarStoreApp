@@ -3,10 +3,19 @@ import {NavigationContainer} from '@react-navigation/native';
 import {BottomTab} from './navigations';
 import {routes, screenOptions} from './routes';
 
+import {BottomTabBarProps} from '@react-navigation/bottom-tabs/src/types';
+import {BottomTabComponent} from '../components';
+
+const BottomComponent = (props: BottomTabBarProps) => (
+  <BottomTabComponent {...props} />
+);
+
 const Router = () => {
   return (
     <NavigationContainer>
-      <BottomTab.Navigator screenOptions={screenOptions}>
+      <BottomTab.Navigator
+        tabBar={BottomComponent}
+        screenOptions={screenOptions}>
         {routes.map(route => (
           <BottomTab.Screen
             key={route.name}
