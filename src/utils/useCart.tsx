@@ -7,8 +7,8 @@ export const useCart = () => {
   const addItem = (product: IStoreResponse) => {
     dispatch(addToCart(product));
   };
-  const removeItem = (id: string) => {
-    dispatch(removeFromCart(id));
+  const removeItem = () => {
+    dispatch(removeFromCart());
   };
   return {addItem, removeItem};
 };

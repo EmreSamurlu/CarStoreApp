@@ -1,11 +1,6 @@
-import {IStoreResponse} from '../../../types/response-types';
+import {ICartState} from '../../../types/redux-types';
 
-export const initialState: {
-  cart: {
-    id: string;
-    quantity: string;
-    product: IStoreResponse;
-  }[];
-} = {
-  cart: [],
+export const initialState: ICartState = {
+  cart: []
+,
 };

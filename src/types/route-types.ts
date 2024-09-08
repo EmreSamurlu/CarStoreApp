@@ -1,4 +1,3 @@
-import {ReactNode} from 'react';
 import {RootStackParams, RootTabParams} from './navigation-types';
 
 export interface ITabRoutes {
@@ -8,5 +7,6 @@ export interface ITabRoutes {
 
 export interface IStackRoutes {
   name: keyof RootStackParams;
-  component: (params: RootStackParams) => ReactNode;
+  component: () => React.JSX.Element;
+  options?: object;
 }
