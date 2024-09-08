@@ -1,8 +1,8 @@
 import {ScrollView, View} from 'react-native';
 import React from 'react';
-import {Button, Card} from 'react-native-paper';
+import {Button, Card, Icon} from 'react-native-paper';
 import {SafeAreaWrapper, Text} from '../../components';
-import {useCart} from '../../utils/useCart';
+import {useCart} from '../../hooks/useCart';
 import {useTranslation} from 'react-i18next';
 import {useAppSelector} from '../../redux/store';
 import {styles} from './ProductDetail.styles';
@@ -10,6 +10,7 @@ import {styles} from './ProductDetail.styles';
 const ProductDetail = () => {
   const {t} = useTranslation();
   const {product} = useAppSelector(state => state.product);
+  const {favorites} = useAppSelector(state => state.favorites);
   const {addItem} = useCart();
   return (
     <SafeAreaWrapper>
@@ -17,6 +18,18 @@ const ProductDetail = () => {
         <ScrollView style={styles.container}>
           <Card>
             <Card.Cover source={{uri: product.image}} />
+            <View style={styles.icon_container}>
+              <Icon
+                source={'star'}
+                color={
+                  favorites.find(favorite => favorite.id === product.id)
+                    ? 'red'
+                    : 'black'
+                }
+                size={24}
+              />
+            </View>
+
             <Card.Title title={product.name} />
             <Card.Content>
               <Text>{product.description}</Text>

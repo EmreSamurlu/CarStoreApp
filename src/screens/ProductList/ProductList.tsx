@@ -8,9 +8,10 @@ import {Text} from 'react-native-paper';
 import {useNavigation} from '@react-navigation/native';
 import {Pages} from '../../constants/pages.enum';
 
-import {useCart} from '../../utils/useCart';
+import {useCart} from '../../hooks/useCart';
 import {AsyncStatus} from '../../constants/async-status.enum';
 import {setSelectedProduct} from '../../redux/features/product/slicer';
+import {styles} from './ProductList.styles';
 
 const ProductList = () => {
   const dispatch = useAppDispatch();
@@ -30,6 +31,7 @@ const ProductList = () => {
 
     return (
       <ProductCard
+        product={item}
         onProductPress={() => handleProductPress(item)}
         onAddToCartPress={() => addItem(item)}
         productPrice={item.price}
@@ -49,6 +51,7 @@ const ProductList = () => {
             <Text> Filter Area </Text>
           </View>
           <FlatList
+            contentContainerStyle={styles.flatlist}
             data={carStore}
             renderItem={renderProductItem}
             numColumns={2}

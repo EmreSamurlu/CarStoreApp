@@ -18,3 +18,7 @@ export interface ICartState {
 export interface IProductState {
   product: IStoreResponse | null;
 }
+
+export interface IFavoritesState {
+  favorites: IStoreResponse[];
+}

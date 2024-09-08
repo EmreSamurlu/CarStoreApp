@@ -4,6 +4,7 @@ import {combineReducers, configureStore} from '@reduxjs/toolkit';
 import carStoreReducer from './features/carstore/slicer';
 import cartReducer from './features/cart/slicer';
 import productReducer from './features/product/slicer';
+import favoritesReducer from './features/favorites/slicer';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {
   FLUSH,
@@ -15,15 +16,16 @@ import {
 } from 'redux-persist';
 
 const persistConfig = {
-  key: 'cart',
+  key: 'root',
   storage: AsyncStorage,
-  whiteList: ['products'],
+  whiteList: ['products, favorites'],
 };
 
 const rootReducer = combineReducers({
   carStore: carStoreReducer,
   cart: persistReducer(persistConfig, cartReducer),
   product: productReducer,
+  favorites: persistReducer(persistConfig, favoritesReducer),
 });
 
 const store = configureStore({
