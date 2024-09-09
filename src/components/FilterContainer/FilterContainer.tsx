@@ -86,8 +86,8 @@ const FilterContainer: FC = () => {
         isVisible={isFiltersVisible}
         hideModal={() => setIsFiltersVisible(false)}
         modalChildren={
-          <View>
-            <Text>label.filters</Text>
+          <View style={styles.modal_container}>
+            <Text variant="titleMedium">label.sortBy</Text>
             <SortBox />
             <Divider />
             <FilterBy

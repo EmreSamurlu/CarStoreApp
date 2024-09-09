@@ -5,4 +5,5 @@ export const initialState: IFilterState = {
   modelFilter: [],
   selectedBrands: [],
   selectedModels: [],
+  selectedSort: '',
 };

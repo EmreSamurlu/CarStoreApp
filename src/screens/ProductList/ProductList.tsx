@@ -19,6 +19,7 @@ import {setSelectedProduct} from '../../redux/features/product/slicer';
 import {styles} from './ProductList.styles';
 import {useSearch} from '../../hooks/useSearch';
 import {setFilteredStore} from '../../redux/features/carstore/slicer';
+import {sortFunctions} from '../../hooks/sort-functions';
 
 const ProductList = () => {
   const dispatch = useAppDispatch();
@@ -26,15 +27,18 @@ const ProductList = () => {
   const {carStore, status, filteredStore} = useAppSelector(
     state => state.carStore,
   );
-  const {selectedBrands, selectedModels} = useAppSelector(
+  const {selectedBrands, selectedModels, selectedSort} = useAppSelector(
     state => state.filters,
   );
   const {addItem} = useCart();
   const {search} = useSearch();
+
   const [searchString, setSearchString] = useState('');
   const [filterStore, setFilterStore] = useState<
     IStoreResponse[] | undefined
   >();
+  const [sorted, setSorted] = useState<IStoreResponse[]>();
+
   useEffect(() => {
     dispatch(getCarsThunk());
   }, [dispatch]);
@@ -83,6 +87,17 @@ const ProductList = () => {
     }
   };
 
+  useEffect(() => {
+    if (carStore) {
+      if (selectedSort && typeof sortFunctions[selectedSort] === 'function') {
+        const sortedStore: IStoreResponse[] = sortFunctions[selectedSort]?.(
+          JSON.parse(JSON.stringify(carStore)),
+        ) as unknown as IStoreResponse[];
+        setSorted(sortedStore);
+      }
+    }
+  }, [selectedSort, carStore]);
+
   return (
     <SafeAreaWrapper>
       {status === AsyncStatus.Loading ? (
@@ -99,6 +114,7 @@ const ProductList = () => {
             <FlatList
               contentContainerStyle={styles.list_container}
               data={
+                (selectedSort && sorted) ||
                 (filterStore?.length && filterStore) ||
                 (filteredStore?.length && filteredStore) ||
                 carStore

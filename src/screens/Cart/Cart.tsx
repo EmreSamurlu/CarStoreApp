@@ -1,10 +1,12 @@
 import {View, FlatList} from 'react-native';
 import React, {useEffect, useState} from 'react';
-import {useAppSelector} from '../../redux/store';
+import {useAppDispatch, useAppSelector} from '../../redux/store';
 import {IStoreResponse} from '../../types/response-types';
 import {CartCard, SafeAreaWrapper, Text} from '../../components';
-import {Divider} from 'react-native-paper';
+import {Button, Divider} from 'react-native-paper';
 import {styles} from './Cart.styles';
+import {useTranslation} from 'react-i18next';
+import {removeFromCart} from '../../redux/features/cart/slicer';
 
 type CartItem = {
   id: string;
@@ -15,6 +17,8 @@ type CartItem = {
 const divider = () => <Divider />;
 
 const Cart = () => {
+  const dispatch = useAppDispatch();
+  const {t} = useTranslation();
   const {cart} = useAppSelector(state => state.cart);
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
 
@@ -26,11 +30,15 @@ const Cart = () => {
 
   if (!cart.length) {
     return (
-      <View>
+      <View style={styles.no_item}>
         <Text>label.noItem</Text>
       </View>
     );
   }
+
+  const totalPrice = cart.reduce((total, item) => {
+    return total + Number(item.product.price) * item.quantity;
+  }, 0);
 
   const renderCartItem = ({item}: {item: CartItem}) => {
     return (
@@ -45,14 +53,27 @@ const Cart = () => {
   };
 
   return (
-    <SafeAreaWrapper>
-      <FlatList
-        data={cartItems}
-        renderItem={renderCartItem}
-        ItemSeparatorComponent={divider}
-        contentContainerStyle={styles.container}
-      />
-    </SafeAreaWrapper>
+    <View style={styles.container}>
+      <SafeAreaWrapper>
+        <FlatList
+          data={cartItems}
+          renderItem={renderCartItem}
+          ItemSeparatorComponent={divider}
+          contentContainerStyle={styles.inner_container}
+        />
+      </SafeAreaWrapper>
+      <View style={styles.footer}>
+        <View>
+          <Text>{`${t('label.totalPrice')}`}</Text>
+          <Text>{totalPrice.toFixed(2)} TL</Text>
+        </View>
+        <Button
+          mode="contained-tonal"
+          onPress={() => dispatch(removeFromCart())}>
+          {t('label.completeOrder')}
+        </Button>
+      </View>
+    </View>
   );
 };
 

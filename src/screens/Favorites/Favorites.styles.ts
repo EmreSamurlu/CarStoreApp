@@ -1,7 +1,7 @@
 import {StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
-  label: {
-    textAlign: 'left',
+  list_container: {
+    paddingBottom: '25%',
   },
 });

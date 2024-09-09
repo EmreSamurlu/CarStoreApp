@@ -23,7 +23,7 @@ const CartCard: FC<ICartCard> = ({itemId, itemName, quantity, itemPrice}) => {
     <View style={styles.container}>
       <View style={styles.info_container}>
         <Text>{itemName}</Text>
-        <Text>{(Number(itemPrice) * quantity).toFixed(2)}</Text>
+        <Text>{(Number(itemPrice) * quantity).toFixed(2)} TL</Text>
       </View>
 
       <View style={styles.quantity_container}>

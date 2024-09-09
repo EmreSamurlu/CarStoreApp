@@ -13,6 +13,7 @@ export interface IFilterState {
   modelFilter: {checked: boolean; label: string; key: string}[];
   selectedModels: string[];
   selectedBrands: string[];
+  selectedSort: string;
 }
 
 export interface ICartState {

@@ -17,6 +17,9 @@ const carSlice = createSlice({
     setSelectedModels: (state, action) => {
       state.selectedModels = action.payload;
     },
+    setSelectedSort: (state, action) => {
+      state.selectedSort = action.payload;
+    },
   },
 });
 
@@ -25,6 +28,7 @@ export const {
   setModelsFilter,
   setSelectedBrands,
   setSelectedModels,
+  setSelectedSort,
 } = carSlice.actions;
 
 export default carSlice.reducer;

@@ -1,6 +1,6 @@
 import {BottomTabNavigationOptions} from '@react-navigation/bottom-tabs';
 import {Pages} from '../constants/pages.enum';
-import {Favorites, ProductList} from '../screens';
+import {Favorites, Profile} from '../screens';
 import {ITabRoutes} from '../types/route-types';
 import ProductStack from './ProductStack/ProductStack';
 import Cart from '../screens/Cart/Cart';
@@ -20,7 +20,7 @@ export const routes: ITabRoutes[] = [
   },
   {
     name: Pages.Profile,
-    component: ProductList,
+    component: Profile,
   },
 ];
 

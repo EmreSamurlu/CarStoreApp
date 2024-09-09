@@ -7,4 +7,7 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     margin: '2%',
   },
+  modal_container: {
+    marginHorizontal: '2%',
+  },
 });

@@ -13,6 +13,15 @@
     "label.deleteItem": "Sepeti Boşalt",
     "label.search": "Ürün Ara",
     "label.filters": "Filtreler",
-    "label.selectFilter": "Filtre Seç"
+    "label.selectFilter": "Filtre Seç",
+    "label.oldToNew": "Eskiden Yeniye",
+    "label.newToOld": "Yeniden Eskiye",
+    "label.priceLowToHigh": "Fiyat Artan",
+    "label.priceHighToLow": "Fiyat Azalan",
+    "label.sortBy": "Sırala",
+    "label.totalPrice": "Toplam Tutar",
+    "label.completeOrder": "Siparişi Tamamla",
+    "label.en": "İngilizce",
+    "label.tr": "Türkçe"
   }
 }

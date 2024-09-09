@@ -13,6 +13,15 @@
     "label.deleteItem": "Clear Cart",
     "label.search": "Search a Product",
     "label.filters": "Filters",
-    "label.selectFilter": "Select Filter"
+    "label.selectFilter": "Select Filter",
+    "label.oldToNew": "Old To New",
+    "label.newToOld": "New To Old",
+    "label.priceLowToHigh": "Price Low To High",
+    "label.priceHighToLow": "Price High To Low",
+    "label.sortBy": "Sort By",
+    "label.totalPrice": "Total Price",
+    "label.completeOrder": "Complete Order",
+    "label.en": "English",
+    "label.tr": "Turkish"
   }
 }

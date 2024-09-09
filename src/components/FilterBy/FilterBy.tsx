@@ -1,6 +1,7 @@
 import {ScrollView, View} from 'react-native';
 import React, {FC} from 'react';
 import {Checkbox, Text} from 'react-native-paper';
+import {styles} from './FilterBy.styles';
 
 export type Filter = {label: string; checked: boolean; key: string};
 
@@ -12,20 +13,20 @@ interface IFilterBy {
 
 const FilterBy: FC<IFilterBy> = ({data, filterName, handlePress}) => {
   return (
-    <ScrollView style={{height: '25%'}}>
-      <Text>{filterName}</Text>
-      {data.map(datum => (
-        <View
-          key={datum.key}
-          style={{flexDirection: 'row', alignItems: 'center'}}>
-          <Checkbox.Android
-            status={datum.checked ? 'checked' : 'unchecked'}
-            onPress={() => handlePress(datum)}
-          />
-          <Text>{datum.label}</Text>
-        </View>
-      ))}
-    </ScrollView>
+    <>
+      <Text variant="titleMedium">{filterName}</Text>
+      <ScrollView style={styles.container}>
+        {data.map(datum => (
+          <View key={datum.key} style={styles.component}>
+            <Checkbox.Android
+              status={datum.checked ? 'checked' : 'unchecked'}
+              onPress={() => handlePress(datum)}
+            />
+            <Text>{datum.label}</Text>
+          </View>
+        ))}
+      </ScrollView>
+    </>
   );
 };
 
